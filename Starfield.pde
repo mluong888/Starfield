@@ -12,6 +12,8 @@ for (int i = 0; i<np.length; i++)
 }
 	np[1] = new OddballParticle();
 	np[2] = new JumboParticle();
+	np[3] = new OddballParticle();
+	np[4] = new JumboParticle();
 }
 void draw()
 {
@@ -67,17 +69,13 @@ interface Particle
 
 class OddballParticle implements Particle
 {
-	double X,Y,Speed,Angle;
-	int ColorR,ColorG,ColorB;
+	double X,Y,Speed;
+	
 	OddballParticle()
 	{
 		Speed = (Math.random()*2)+1;
 		X = (Math.random()*100)+250;
 		Y = (Math.random()*100)+250;
-		ColorR = (int)(Math.random()*255);
-		ColorG = (int)(Math.random()*255);
-		ColorB = (int)(Math.random()*255);
-		Angle = Math.random()*2*Math.PI;
 	}
 public void move()
 {
@@ -92,7 +90,7 @@ public void move()
 }
 public void show()
 {
-	fill(255);
+	fill((int)X,(int)Y,150);
 	noStroke();
 	ellipse((float)X,(float)Y,50,50);
 }
@@ -101,6 +99,7 @@ class JumboParticle extends NormalParticle//uses inheritance
 {
 public void show()
 	{
+	fill((int)X,150,(int)Y);
 	ellipse((float)X,(float)Y,100,100);
 	}
 	//your code here
